@@ -1,7 +1,25 @@
+"use client";
+import { useForm, SubmitHandler } from "react-hook-form";
+
 export default function Create() {
+  type Inputs = {
+    secret: string;
+    expiration: "3600";
+    oneTime: boolean;
+    generateKey: boolean;
+  };
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <textarea
+        {...register("secret", { required: true })}
         className="textarea textarea-primary textarea-lg w-full"
         placeholder="Secret"
         rows={4}
@@ -15,14 +33,15 @@ export default function Create() {
               The encrypted message will be deleted automatically after
             </span>
             <input
+              {...register("expiration")}
               type="radio"
               name="radio"
               className="radio radio-primary"
               value="3600"
-              defaultChecked
             />
             1 Hour
             <input
+              {...register("expiration")}
               type="radio"
               name="radio"
               className="radio radio-primary"
@@ -30,6 +49,7 @@ export default function Create() {
             />
             1 Day
             <input
+              {...register("expiration")}
               type="radio"
               name="radio"
               className="radio radio-primary"
@@ -42,6 +62,7 @@ export default function Create() {
           <label className="label cursor-pointer">
             <span className="label-text">One-time download</span>
             <input
+              {...register("oneTime")}
               type="checkbox"
               className="toggle toggle-primary"
               defaultChecked
@@ -51,6 +72,7 @@ export default function Create() {
           <label className="label cursor-pointer">
             <span className="label-text">Generate Decryption Key</span>
             <input
+              {...register("generateKey")}
               type="checkbox"
               className="toggle toggle-primary"
               defaultChecked
@@ -61,6 +83,6 @@ export default function Create() {
       <div className="flex-row mt-3">
         <button className="btn w-full btn-primary">Encrypt Message</button>
       </div>
-    </div>
+    </form>
   );
 }
