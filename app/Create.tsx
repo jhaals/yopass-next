@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 export default function Create() {
   type Inputs = {
     secret: string;
-    expiration: "3600";
+    expiration: "3600" | "3601" | "3603";
     oneTime: boolean;
     generateKey: boolean;
   };
@@ -14,7 +14,7 @@ export default function Create() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({ defaultValues: { expiration: "3600" } });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -35,7 +35,6 @@ export default function Create() {
             <input
               {...register("expiration")}
               type="radio"
-              name="radio"
               className="radio radio-primary"
               value="3600"
             />
@@ -43,7 +42,6 @@ export default function Create() {
             <input
               {...register("expiration")}
               type="radio"
-              name="radio"
               className="radio radio-primary"
               value="3601"
             />
@@ -51,7 +49,6 @@ export default function Create() {
             <input
               {...register("expiration")}
               type="radio"
-              name="radio"
               className="radio radio-primary"
               value="3603"
             />

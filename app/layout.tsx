@@ -1,3 +1,4 @@
+import { Features } from "./components/Features";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -30,11 +31,17 @@ export default function RootLayout({
               </span>
             </div>
             <div className="w-10/12">
-              {children}{" "}
-              <p className="text-sm text-center mt-10 opacity-70">
-                Created by Johan Haals
-              </p>
+              {children}
+              <div className="divider mt-5 mb-5"></div>
+              <h3 className="text-lg font-medium justify-center text-center">
+                Share Secrets Securely With Ease
+              </h3>
+              <Features />
             </div>
+
+            <p className="text-sm text-center mt-10 opacity-70">
+              Created by Johan Haals
+            </p>
           </div>
         </div>
       </body>
