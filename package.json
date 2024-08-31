@@ -18,7 +18,7 @@
     "eslint": "8.57.0",
     "eslint-config-next": "13.5.6",
     "next": "13.5.6",
-    "postcss": "8.4.41",
+    "postcss": "8.4.42",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.46.1",
