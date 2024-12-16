@@ -11,7 +11,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "20.17.10",
-    "@types/react": "18.3.16",
+    "@types/react": "18.3.17",
     "@types/react-dom": "18.3.5",
     "autoprefixer": "10.4.20",
     "daisyui": "^3.0.0",
